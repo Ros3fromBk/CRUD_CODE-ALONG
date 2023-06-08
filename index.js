@@ -12,6 +12,7 @@ function run() {
     inform("Welcome to my CrudBased App ! ✌🏾🌹✨ \n")
 
     let animals = readJSONFile("data", "animals.json")
+    let points = readJSONFile("data", "animalPoints.json")
     // console.log(animals)
 
     const action = process.argv[2]; // What was typed in by the user?
@@ -21,26 +22,26 @@ function run() {
     let updatedAnimals = [];
 
     switch (action) {
-      case "index":
-        inform(action,animals);
-        break;
-      case "create":
-        inform(action, animal);
-        break;
-      case "show":
-        inform(action, animal);
-        break;
-      case "update":
-        inform(action, animal);
-        break;
-      case "destroy":
-        inform(action, animal);
-        break;
-      case "score":
-        inform(action);
-        break;
-      default:
-        inform("There was an error.");
+        case "index":
+            inform(action, animals);
+            break;
+        case "create":
+            inform(action, animal);
+            break;
+        case "show":
+            inform(action, animal);
+            break;
+        case "update":
+            inform(action, animal);
+            break;
+        case "destroy":
+            inform(action, animal);
+            break;
+        case "score":
+            inform(action);
+            break;
+        default:
+            inform("There was an error.");
     }
     // switch (action) {
 

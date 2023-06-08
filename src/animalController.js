@@ -1,9 +1,8 @@
 const inform = console.log
-const {readJSONFile } = require("../src/helpers")
-
+// const {readJSONFile } = require("../src/helpers")
 const { nanoid } = require("nanoid");
 // const points  = require("../data/animalPoints.json")
-const points = readJSONFile("../data/animalPoints.json")
+// const points = readJSONFile("../data/animalPoints.json")
 ///CRUD APP
 /* C reate
     R ead
@@ -28,7 +27,7 @@ function show(arrOfAnimals, animalId) {
 function create(animals, animalName) {
     const newAnimal = {
         name: animalName, id: nanoid(4),
-        // points: animalPoints[animalName],
+        points: animalPoints[animalName],
     };
     animals.push(newAnimal);
     return animals;
