@@ -13,7 +13,7 @@ function writeInJSONFile(path, fileName, data) {
     // num+=1
     //num = num +1 
     //reassigning num/ "data" 
-return writeInJSONFile(`${path}/ ${fileName}`, data, {encoding: "utf-8"}) 
+return writeFileSync(`${path}/${fileName}`, data, {encoding: "utf-8"}) 
 }
 
 

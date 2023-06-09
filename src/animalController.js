@@ -1,5 +1,5 @@
 const inform = console.log
-// const {readJSONFile } = require("../src/helpers")
+const animalPoints = require("../data/animalPoints.json");
 const { nanoid } = require("nanoid");
 // const points  = require("../data/animalPoints.json")
 // const points = readJSONFile("../data/animalPoints.json")
@@ -19,18 +19,23 @@ function index(arrOfAnimals) {
 //     const animal = animals.find((animal) => animal.id === animalId);
 //     return animal.id + " " + animal.name + " " + animal.points + " points";
 //   }
-function show(arrOfAnimals, animalId) {
-    const animalToFind = arrOfAnimals.find((animalToFind) => animalToFind.id === animalId);
+function showbyName(arrOfAnimals, animalId) {
+    const animalToFind = arrOfAnimals.find((eachAnimal) => eachAnimal.name == animalId);
+    // console.log(arrOfAnimals)
     return animalToFind.id + " " + animalToFind.name + " " + animalToFind.points + " points";
+
 }
 
-function create(animals, animalName) {
+function create(animals, animalName, animalPoints) {
     const newAnimal = {
         name: animalName, id: nanoid(4),
-        points: animalPoints[animalName],
+        points: animalPoints
     };
+
+
     animals.push(newAnimal);
     return animals;
+
 }
 
 
@@ -49,12 +54,14 @@ function destroy(animals, animalId) {
 
 
 function edit(animals, animalId, updatedAnimal) {
-    const index = animals.findIndex((animal) => animal.id === animalId);
+    const index = animals.findIndex((animal) => animal.id == animalId);
     if (index > -1) {
         animals[index].id = animalId;
         animals[index].name = updatedAnimal;
-        animals[index].points = animalPoints[updatedAnimal];
-        inform("Animal successfully updated");
+        animals[index].points = Math.random() * 10.25 ;
+        inform("Animal successfully updated")
+        // console.log(givenAnimalPoints)
+        ;
         return animals;
     } else {
         inform("Animal not found. No action taken");
@@ -64,7 +71,7 @@ function edit(animals, animalId, updatedAnimal) {
 
 module.exports = {
     index,
-    show,
+    showbyName,
     edit,
     create,
     destroy
